@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <style>     
+            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+           *{
+                margin: 0%;
+                padding: 0%;
+                font-family:'poppins', sans-serif;
+                box-sizing: border-box;
+            }
+            .cont{
+                width: 60%;
+                height:500px;
+                margin-top: 50px;
+                margin-left: 250px;
+                background-color:gray;
+                display: flex;
+                align-items: center;
+                justify-content:center;
+            }
+            .calculator{
+                background:#3a4452;
+                padding: 0px;
+                border-radius: 7px;
+            }
+            .calculator form input{
+                border: 0;
+                outline: 0;
+                width: 60px;
+                height: 50px;
+                font-size: 20px;
+                color:black;
+                cursor: pointer;
+                margin: 0px;
+            }
+            form .display{
+                display: flex;
+                justify-content: flex-end;
+                margin: 0px 0;
+            }
+            form .display input{
+                flex: 1;
+                font-size: 35px;
+                text-align: left;
+                box-shadow: none;
+
+            }
+            form input.equal{
+                width: 60px;
+            }
+            form input.operator{
+                color: black;
+
+            }
+            .cal{
+
+                box-shadow:  rgba(255, 255,255, 0.1), rgba(0,0,0,0.2);
+                background: transparent;
+            }
+            #col{
+                background: green;
+                box-shadow:  rgba(255, 255,255, 0.1),  rgba(0,0,0,0.2);
+                margin-left: 192px;
+                position: relative;
+    
+            }
+            #ope{
+                background: pink;
+                box-shadow: rgba(255, 255,255, 0.1),  rgba(0,0,0,0.2);
+    
+            }
+            .equal operator{
+                width: 20px;
+            }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="calculator">
+            <form >
+                <div class="display">
+                    <input type="text" name="display">
+                </div>
+                
+                <div> 
+                    <input type="button" value="AC" onclick= "display.value=''" class="operator" id="col">
+           
+                </div>
+                <div>
+                    <input type="button" value="9"  onclick="display.value+='9'" class="cal">
+                    <input type="button" value="8"  onclick="display.value+='8'" class="cal">
+                    <input type="button" value="7"  onclick="display.value+='7'" class="cal">
+                    <input type="button" value="+" onclick="display.value+='+'" class="operator" id="ope">
+                    
+                </div>
+                <div>
+                    <input type="button" value="4"  onclick="display.value+='4'" class="cal">
+                    <input type="button" value="5" onclick="display.value+='5'" class="cal">
+                    <input type="button" value="6" onclick="display.value+='6'" class="cal">
+                    <input type="button" value="-" onclick="display.value+='-'" class="operator" id="ope">
+                
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="display.value+='1'" class="cal">
+                    <input type="button" value="2" onclick="display.value+='2'" class="cal">
+                    <input type="button" value="3" onclick="display.value+='3'" class="cal">
+                    <input type="button" value="/" onclick="display.value+='/'" class="operator" id="ope">
+                </div>
+                <div>
+                    <input type="button" value="." onclick="display.value+='.'" class="cal">
+                    <input type="button" value="0" onclick="display.value+='0'" class="cal">
+                    <input type="button" value="="  onclick="display.value=eval(display.value)" class="cal">
+                    <input type="button" value="*"  onclick="display.value+='*'" class="operator" id="ope">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById('display');
+        function appendToDisplay(value) {
+        display.value += value;
+        }
+
+        function clearDisplay() {
+        display.value = '';
+        }
+
+        function calculate() {
+        try {
+             display.value = eval(display.value);
+            } catch (error) {
+            display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
